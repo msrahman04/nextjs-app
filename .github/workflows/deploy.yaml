@@ -134,6 +134,7 @@ jobs:
       # ------------------------------------------------------
       - name: Update Docker Hub repository overview
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        continue-on-error: true
         uses: peter-evans/dockerhub-description@v4
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
